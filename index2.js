@@ -194,7 +194,7 @@ function closeNav() {
   // Let's check whether notification permissions have already been granted
   else if (Notification.permission === "granted") {
     // If it's okay let's create a notification
-     var notificationBody = "Hi there Champ this is you Personal Trainer.jr.I welcome you in this program.Which will help you shape your body according to you.To know you better please fill the user details form you can navigate there through the hamburger menu if,you have aldready filled the form kindly you can ignore this notification later if you want to update the settings later you can do the same through there.";
+     var notificationBody = "Hi there Champ this is your Personal Trainer.jr.I welcome you in this program.Which will help you shape your body according to you.To know you better please fill the user details form you can navigate there through the hamburger menu if,you have aldready filled the form kindly you can ignore this notification later if you want to update the settings later you can do the same through there.";
     var notification = new Notification(notificationBody);
   
   }
@@ -204,7 +204,7 @@ function closeNav() {
     Notification.requestPermission().then(function (permission) {
       // If the user accepts, let's create a notification
       if (permission === "granted") {
- var notificationBody = "Hi there Champ this is you Personal Trainer.jr.I welcome you in this program.Which will help you shape your body according to you.To know you better please fill the user details form you can navigate there through the hamburger menu if,you have aldready filled the form kindly you can ignore this notification later if you want to update the settings later you can do the same through there.";
+ var notificationBody = "Hi there Champ this is your Personal Trainer.jr.I welcome you in this program.Which will help you shape your body according to you.To know you better please fill the user details form you can navigate there through the hamburger menu if,you have aldready filled the form kindly you can ignore this notification later if you want to update the settings later you can do the same through there.";
         var notification = new Notification(notificationBody);
       }
     });
