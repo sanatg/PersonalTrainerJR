@@ -1,0 +1,358 @@
+<html>
+<head>
+    <!-- /home/sanat/Documents/Code/firebaseWebLogin (copy)/Exercises   -->
+  <title>Personal Trainer.jr</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js" charset="utf-8"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+</head>
+<body>
+
+  <div align="center" id="login_div"class="main-div">
+
+    <h3>Personal Trainer.jr</h3>
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+    <button onclick="login()"class="btn btn-outline-success btn-lg">Login to Account</button>
+    <br>
+    <br>
+    <button onclick="signupscreen()"class="btn btn-outline-primary btn-lg">Make an Account</button>
+    
+  </div>
+
+ 
+
+  <div id="nav-div">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="nav-div1">
+        <a href="index.html">Home</a>
+        <a href="BMI.html"> BMI</a>
+        <a href="diet.html">Diet</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="fit2.html">Fit Facts</a>
+        <a href="userprofile.html">User Details</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+      <div class = "sub-small-div">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+       
+        <button onclick="logout()" class="btn btn-outline-primary">Logout</button>
+          
+        <button onclick="deleteuser()" class="btn btn-outline-danger">Delete User</button>
+        </li> 
+      </ul> 
+    </div>
+    </div>
+    <i class="far fa-fire-alt"  style="font-size:25px;cursor:pointer;color: #fff;" onclick="openNav()" id="hamburger"></i>
+    &nbsp;
+    &nbsp;
+    
+    <a class="navbar-brand" href="#">Exercises</a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+      </ul>
+    </div>  
+  </nav>
+  </div>
+
+    <div id="overlay" onclick="closeNav()"></div>
+    <div id="choose-div" class="visiblity-style">
+        <div class="butto-div">
+            <button class="btn btn-outline-info btn-lg" onclick="showHeightexercises()">Height Building</button>&nbsp;
+            <button class="btn btn-outline-danger btn-lg" onclick="showeightgainexercises()">Weight Gain</button>&nbsp;
+            <button class="btn btn-outline-success btn-lg" onclick="showeightlossexercises()">Weight Loss</button>
+        </div>
+    </div>
+
+    <div id="overlay" onclick="closeNav()"></div>
+    <div id="heightbuilding-div" class="visiblity-style2">
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/height_building/balanced_diet.jpg" alt="balanced diet">
+                <div class="card-body">
+                    <h5 class="card-title">Balanced Diet</h5>
+                    <p class="card-text">
+                    The best way to ensure that you reach your maximum height is by ensuring that you get proper nutrition.
+                    A balanced diet should be a mix of proteins, carbohydrates, fat and vitamins in the correct proportion.
+
+                    Also, ensure that you keep away yourself from junk food and aerated drinks. 
+                    Once in a while is okay but you should not consume it daily.
+                
+                    Zinc is found to have a huge effect on your growth. 
+                    Thus, it's important to include zinc-rich food like peanuts and squash seeds your diet. 
+                    A balanced diet will not only provide you with the right nutrients to increase the height
+                    but will also make you stronger from inside.You can refer some balanced diets in our diets menu.
+                    </p>
+                </div> 
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/height_building/hanging.jpg" alt="hanging">
+                <div class="card-body">
+                   <h5 class="card-title">Hanging</h5>
+                    <p class="card-text">
+                        Hanging for increasing height has been recommended for decades now. 
+                        Hanging from bars helps to elongate the spine, 
+                        which is an important part of becoming taller. 
+                        Apart from regular hanging, you can do pull-ups and chin-ups.
+                        Both the exercises make the muscles of the back and arms stronger.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/height_building/skipping.jpg" alt="skipping">
+                <div class="card-body">
+                   <h5 class="card-title">Skipping</h5>
+                    <p class="card-text">
+                        Skipping rope is a fun exercise that feels more like a game to kids, 
+                        It works on the entire body including the heart and increases height. 
+                        The entire body stretches while skipping the rope, 
+                        which promotes the vertical growth.It is also an amazing cardio workout,
+                         which helps keep you active and healthy.
+                    </p>                
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/height_building/stretching_exercises.jpg" alt="stretching"/>
+                <div class="card-body">
+                   <h5 class="card-title">Stretching</h5>
+                    <p class="card-text">
+                        Even simple stretching exercises can have a huge impact on your height. 
+                        Teaching yourself some simple exercises from a young age will facilitate 
+                        the process of height growth. Stretching helps elongate the spine and improve 
+                        your posture. Here are two easy stretching exercises.
+                        Make yourself stand on his feet tall with his back against the wall and try to 
+                        strengthen your leg muscles while reaching up on the wall. 
+                        Another easy stretching exercise involves sitting on the floor with your legs 
+                        wide apart and trying to reach both the toes with your arms.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style=width:70%;>
+                <img class="card-img-top" src="./Exercises/height_building/yoga.jpg" alt="Yoga"/>
+                <div class="card-body">
+                   <h5 class="card-title">Yoga</h5>
+                    <p class="card-text">
+                        Yoga practice involves a lot of stretching and balance, 
+                        both of which are great for your height.
+                        Make yourself do some yoga asanas like Surya namaskar, 
+                        chakra asana and tree pose this will be great for your height
+                        you can also ask your parents to do yoga with you.
+                    </p>
+                </div>
+            </div>
+        </div>
+          <button  class="print-bt-style" onclick="customwindowprint()" id="print-bt" style ="width:210px"><i class="fad fa-print" style="font-size:20px;"></i> Print Exercise Plan</button>
+    </div>
+
+    <div id="overlay" onclick="closeNav()"></div>
+    <div id="weightgain-div" class="visiblity-style3">
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/weight_gain/lunges.jpg" alt="Lunges"/>
+                <div class="card-body">
+                   <h5 class="card-title">Lunges</h5>
+                    <p class="card-text">
+                        You can do this exercise anywhere. 
+                        It’s great for bulking up and toning your leg and butt muscles.
+                        Stand up straight, flexing your abdominal muscles.
+                        Extend one leg like you’re taking a step, then lean forward like 
+                        you’re kneeling until your knees are at 90-degree angles.
+                        Push back on your heel to lift yourself back up to your initial position.
+                        Repeat as many times as you feel comfortable on one leg.
+                        Repeat for the other leg.   
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/weight_gain/pullups.jpg" alt="pullups"/>
+                <div class="card-body">
+                   <h5 class="card-title">Lunges</h5>
+                    <p class="card-text">
+                        You’ll need some kind of pullup bar or sturdy cylindrical object to do pullups.
+                         Otherwise, this exercise is a simple way to build arm and shoulder muscles.
+                        Grip the pullup bar with both hands. Your palms should face away from you.
+                         Keep your arms shoulder-width apart.
+                        Pull yourself up enough to hang off the bar so that your feet aren’t touching 
+                        the ground and your arms are straight.
+                        Continue to pull yourself up until your chin is above the bar.
+                        Slowly lower yourself down so that your arms are straight again.
+                        Repeat as many times as you want.
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/weight_gain/pushups.jpg" alt="pullups"/>
+                <div class="card-body">
+                   <h5 class="card-title">Push Ups</h5>
+                    <p class="card-text">
+                        Pushups are simple and help build muscle in your arms and shoulders.
+                         To do a pushup:
+
+                        Lie face down on the ground.
+                        Put your hands on the ground, palms flat, with your arms out at your
+                         sides and your hands shoulder-width apart.
+                        Slowly push your body up until your arms are fully extended. 
+                        Keep your back and legs straight so that your body makes a straight line.
+                        Slowly lower yourself back down until your nose nearly touches the floor.
+                        Repeat as many times as you feel comfortable.
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+             <button  class="print-bt-style" onclick="customwindowprint()" id="print-bt2" style ="width:210px"><i class="fad fa-print" style="font-size:20px;"></i> Print Exercise Plan</button>
+    </div>
+    
+    <div id="overlay" onclick="closeNav()"></div>
+    <div id="weightloss-div" class="visiblity-style4">
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/weight_gain/lunges.jpg" alt="Lunges"/>
+                <div class="card-body">
+                   <h5 class="card-title">Lunges</h5>
+                    <p class="card-text">
+                        You can do this exercise anywhere. 
+                        It’s great for bulking up and toning your leg and butt muscles.
+                        Stand up straight, flexing your abdominal muscles.
+                        Extend one leg like you’re taking a step, then lean forward like 
+                        you’re kneeling until your knees are at 90-degree angles.
+                        Push back on your heel to lift yourself back up to your initial position.
+                        Repeat as many times as you feel comfortable on one leg.
+                        Repeat for the other leg.   
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/weight_gain/pullups.jpg" alt="pullups"/>
+                <div class="card-body">
+                   <h5 class="card-title">Lunges</h5>
+                    <p class="card-text">
+                        You’ll need some kind of pullup bar or sturdy cylindrical object to do pullups.
+                         Otherwise, this exercise is a simple way to build arm and shoulder muscles.
+                        Grip the pullup bar with both hands. Your palms should face away from you.
+                         Keep your arms shoulder-width apart.
+                        Pull yourself up enough to hang off the bar so that your feet aren’t touching 
+                        the ground and your arms are straight.
+                        Continue to pull yourself up until your chin is above the bar.
+                        Slowly lower yourself down so that your arms are straight again.
+                        Repeat as many times as you want.
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" src="./Exercises/weight_gain/pushups.jpg" alt="pullups"/>
+                <div class="card-body">
+                   <h5 class="card-title">Push Ups</h5>
+                    <p class="card-text">
+                        Pushups are simple and help build muscle in your arms and shoulders.
+                         To do a pushup:
+
+                        Lie face down on the ground.
+                        Put your hands on the ground, palms flat, with your arms out at your
+                         sides and your hands shoulder-width apart.
+                        Slowly push your body up until your arms are fully extended. 
+                        Keep your back and legs straight so that your body makes a straight line.
+                        Slowly lower yourself back down until your nose nearly touches the floor.
+                        Repeat as many times as you feel comfortable.
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+         <button  class="print-bt-style" onclick="customwindowprint()" id="print-bt3" style ="width:210px"><i class="fad fa-print" style="font-size:20px;"></i>  Print Exercise Plan</button>
+    </div>
+<div id = "registrationForm">
+    <br>
+    <br>
+    <br>
+    <br>
+  <div  style="max-width:50%;margin:auto">
+  <h2 style="text-align:center">Sign Up</h2>
+  <br>
+  <div class="input-container">
+    <i class="fa fa-envelope icon" style="padding: 10px;background: dodgerblue;color: white;min-width: 50px;text-align: center;"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email"  id="InputEmail1">
+  </div>
+  
+  <div class="input-container">
+    <i class="fa fa-key icon" style = "padding: 10px;background: dodgerblue;color: white;min-width: 50px;text-align: center;"></i>
+    <input class="input-field" type="password" placeholder="Password" id="InputPassword1">
+  </div>
+
+  <button type="submit" class="btn-style" onclick="signup()">Register</button>
+  <br>
+  <br>
+  <button  class="btn-style2" onclick="backButton()">Cancel</button>
+</div>
+</div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDVvDtr7PGq3M0NWuTlYyPUKREWfMMccz4",
+    authDomain: "fir-auth-73adb.firebaseapp.com",
+    databaseURL: "https://fir-auth-73adb.firebaseio.com",
+    projectId: "fir-auth-73adb",
+    storageBucket: "fir-auth-73adb.appspot.com",
+    messagingSenderId: "192456213504",
+    appId: "1:192456213504:web:cf61e5a7692ea5df2c04e5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="index4.js"></script>
+</body>
+</html>
