@@ -69,7 +69,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     firebase.auth().createUserWithEmailAndPassword(registeremail, registerpassword)
     .then((user) => {
       // Signed in 
-      alert("user created");
+     Qual.successd("success","User created successfully");
     })
     .catch((error) => {
       var errorCode = error.code;
