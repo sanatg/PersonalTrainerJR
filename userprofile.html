@@ -1,0 +1,150 @@
+<html>
+<head>
+  <title>Personal Trainer.jr</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="font/Rimouski.css">
+  <script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js" charset="utf-8"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+  <div align="center" id="login_div"class="main-div">
+  <h3>Personal Trainer.jr</h3>
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+    
+    <button onclick="login()"class="btn btn-outline-success btn-lg">Login to Account</button>
+    <br>
+    <br>
+    <button onclick="signupscreen()"class="btn btn-outline-primary btn-lg">Make an Account</button>   
+  </div>
+  <div id="nav-div">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="nav-div1">
+        <a href="index.html">Home</a>
+        <a href="BMI.html"> BMI</a>
+        <a href="diet.html">Diet</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="fit2.html">Fit Facts</a>
+        <a href="userprofile.html">User Details</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+      <div class = "sub-small-div">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+       
+        <button onclick="logout()" class="btn btn-outline-primary">Logout</button>
+          
+        <button onclick="deleteuser()" class="btn btn-outline-danger">Delete user</button>
+        </li> 
+      </ul> 
+    </div>
+    </div>
+    <i class="far fa-fire-alt"  style="font-size:25px;cursor:pointer;color: #fff;" onclick="openNav()" id="hamburger"></i>
+    &nbsp;
+    &nbsp;
+    
+    <a class="navbar-brand" href="#">Personel Trainer.jr  </a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+      </ul>
+    </div>  
+  </nav>
+
+  </div>
+  
+    <div id="overlay" onclick="closeNav()"></div>
+  <div id="registrationForm">
+    <br>
+    <br>
+    <br>
+    <br>
+  <div  style="max-width:50%;margin:auto">
+  <h2 style="text-align:center">Sign Up</h2>
+  <br>
+  <div class="input-container">
+    <i class="fa fa-envelope icon" style="padding: 10px;background: dodgerblue;color: white;min-width: 50px;text-align: center;"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email"  id="InputEmail1">
+  </div>
+  
+  <div class="input-container">
+    <i class="fa fa-key icon" style = "padding: 10px;background: dodgerblue;color: white;min-width: 50px;text-align: center;"></i>
+    <input class="input-field" type="password" placeholder="Password" id="InputPassword1">
+  </div>
+
+  <button type="submit" class="btn-style" onclick="signup()">Register</button>
+  <br>
+  <br>
+  <button  class="btn-style2" onclick="backButton()">Cancel</button>
+</div>
+  </div>
+</div>
+  <div id = "detailform">
+  <div>
+    <div class="sub-div">
+      <h3 style="text-align:center;">User Info</h3>
+      <div class="sub-div3">
+      <label for="firstName">First Name</label>
+      <input class="form-control" id="FirstName">
+      <small id="firstName1" class="form-text text-muted">We'll never share your personal information with anyone.</small>
+
+      <label for="LastName1">Last Name</label>
+      <input class="form-control" id="LastName1">
+
+      <label for="FormControlSelect1">Select your age category</label>
+      <select class="select-form" id="FormControlSelect1">
+        <option>3 - 5</option>
+        <option>6 - 9</option>
+        <option>10 - 13</option>
+        <option>13 - 16</option>
+      </select>
+<br>
+<br>
+      <label for="InputWeight">Enter your weight</label>
+      <input class="form-control" id="InputWeight">
+<br>
+<br>        
+
+ 
+    <button  class="btn btn-outline-success" onclick="registerLocalStorage()">Submit</button>
+  </div>
+  </div>
+  </div>
+  
+
+
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDVvDtr7PGq3M0NWuTlYyPUKREWfMMccz4",
+    authDomain: "fir-auth-73adb.firebaseapp.com",
+    databaseURL: "https://fir-auth-73adb.firebaseio.com",
+    projectId: "fir-auth-73adb",
+    storageBucket: "fir-auth-73adb.appspot.com",
+    messagingSenderId: "192456213504",
+    appId: "1:192456213504:web:cf61e5a7692ea5df2c04e5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="userprofile.js"></script>
+
+</body>
+</html>

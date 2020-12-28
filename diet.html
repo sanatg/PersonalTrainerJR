@@ -1,0 +1,518 @@
+<html>
+<head>
+    <!-- /home/sanat/Documents/Code/firebaseWebLogin (copy)/Exercises   -->
+  <title>Personal Trainer.jr</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/cosmogicofficial/quantumalert@latest/minfile/quantumalert.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+</head>
+<body>
+
+  <div align="center" id="login_div"class="main-div">
+
+    <h3>Personal Trainer.jr</h3>
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+    <button onclick="login()"class="btn btn-outline-success btn-lg">Login to Account</button>
+    <br>
+    <br>
+    <button onclick="signupscreen()"class="btn btn-outline-primary btn-lg">Make an Account</button>
+  </div>
+
+ 
+
+  <div id="nav-div">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="nav-div1">
+        <a href="index.html">Home</a>
+        <a href="BMI.html"> BMI</a>
+        <a href="diet.html">Diet</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="fit2.html">Fit Facts</a>
+        <a href="userprofile.html">User Details</a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+      <div class = "sub-small-div">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+       
+        <button onclick="logout()" class="btn btn-outline-primary">Logout</button>
+          
+        <button onclick="deleteuser()" class="btn btn-outline-danger">Delete User</button>
+        </li> 
+      </ul> 
+    </div>
+    </div>
+    <i class="far fa-fire-alt"  style="font-size:25px;cursor:pointer;color: #fff;" onclick="openNav()" id="hamburger"></i>
+    &nbsp;
+    &nbsp;
+    
+    <a class="navbar-brand" href="#">Diets</a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+      </ul>
+    </div>  
+  </nav>
+  </div>
+    <div id="overlay" onclick="closeNav()"></div>
+    <div id="choose-div" class="visiblity-style">
+        <div class="butto-div">
+            <button class="btn btn-outline-info btn-lg" onclick="showHeightexercises()">Height Building</button>&nbsp;
+            <button class="btn btn-outline-danger btn-lg" onclick="showeightgainexercises()">Weight Gain</button>&nbsp;
+            <button class="btn btn-outline-success btn-lg" onclick="showeightlossexercises()">Weight Loss</button>
+        </div>
+    </div>
+ <div id="overlay" onclick="closeNav()"></div>
+    <div id="heightbuilding-div" class="visiblity-style2">
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/height_building/1.jpg" alt="intro">
+                <div class="card-body">
+                    <h5 class="card-title">Intro</h5>
+                    <p class="card-text">
+                        Height plays an important role in overall personality, some are blessed with great
+                        genes, whereas some need to work a little bit to achieve that perfect height. 
+                        It is a fact that after a certain age the growth of height becomes stagnant,
+                        and this is why you must take care of your height right from  early age.
+                        Interestingly, there are several things that lead to an overall growth of your height,
+                        but dietary habits play a pivotal role. Hence, it is often advised to give yourself 
+                        a proper nutrient-rich diet as this will give you ample nutrition 
+                        for a good height and weight according to his/her age.
+                        <br>
+                        <br>
+                        A protein-rich diet is essential to accelerate height as it repairs the 
+                        tissues and develops lean muscles. Good fats and crabs along with various micro-
+                        nutrients assist in weight and height management. So, have a nutrient-
+                        filled diet on a regular basis to grow taller.
+                    </p>
+                </div> 
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/height_building/2.jpg" alt="veges">
+                <div class="card-body">
+                   <h5 class="card-title">Vegetables</h5>
+                    <p class="card-text">
+                        Vegetables are the healthiest options as far as a growth is concerned.
+                        It contains iron, magnesium, vitamin K, vitamin B, Vitamin A and other minerals, 
+                        which are extremely beneficial to increase his/her height. Try
+                        including a bowl of broccoli, spinach, cauliflower, kale, beans, carrots,
+                        beetroots, along with other vegetables that you loves eating; 
+                        This will ensure that there is enough intake of nutrients for overall 
+                        development of your body. Vitamin A is essential for protein synthesis whereas 
+                        vitamin K promotes bone density. Make yourself eat a rainbow meal 
+                        filled with different colored vegetables to accelerate the growth in height.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/height_building/3.jpg" alt="soyabeans">
+                <div class="card-body">
+                   <h5 class="card-title">SoyaBeans</h5>
+                    <p class="card-text">
+                        Soybean is a great substitution for chicken and egg, 
+                        if you are vegetarian then you can totally have soybeans,
+                        an alternative source of protein. Proteins play a vital
+                         role in the overall development of the body,
+                        it promotes and accelerates the growth in children.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/height_building/4.jpg" alt="wholewheat"/>
+                <div class="card-body">
+                   <h5 class="card-title">Whole Grain</h5>
+                    <p class="card-text">
+
+                    Whole grains, dals, and pulses are a good source of protein, iron and vitamin B.
+                    All of these nutrients promotes the development of a child and boosts his/her metabolism.
+                    If you want to increase your height, then include dals, and pulses in a daily diet.
+                    Switch to whole-wheat bread, pasta, cereals etc to help him/her achieve that perfect height.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style=width:70%;>
+                <img class="card-img-top" draggable="false" src="./Diet/height_building/5.jpg" alt="Fruits"/>
+                <div class="card-body">
+                   <h5 class="card-title">Fruits</h5>
+                    <p class="card-text">
+                        All kinds of fruits are considered as super food for their high nutrient content.
+                        Seasonal fruits are rich in minerals and have low-fat content. 
+                        It is one of the healthiest foods for anyone, who wants to boost 
+                        immunity and improve metabolism.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style=width:70%;>
+                <img class="card-img-top" draggable="false" src="./Diet/height_building/6.jpg" alt="milk"/>
+                <div class="card-body">
+                   <h5 class="card-title">Milk</h5>
+                    <p class="card-text">
+                        Milk promotes lean muscle growth and keeps your bones strong. 
+                        It also makes your immune system stronger. 
+                        It is an essential part of your diet.
+                        It fulfills the daily requirement of calcium, vitamin-D and protein, 
+                        you can add nuts to enhance the taste of the milk.
+                    </p>
+                </div>
+            </div>
+        </div>
+                <button  class="print-bt-style" onclick="customwindowprint()" id="print-bt">
+                    <i class="fad fa-print" style="font-size:20px;"></i>   Print Diet Plan</button>
+    </div>
+    <div id="overlay" onclick="closeNav()"></div>
+    <div id="weightgain-div" class="visiblity-style3">
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/weight_gain/1.jpg" alt="weight gain"/>
+                <div class="card-body">
+                   <h5 class="card-title">Intro</h5>
+                    <p class="card-text">
+                        So,when it comes to gaining weight we think that we can eat any thing like,eating a 
+                        lot of sweets,pastries and other confectionaries and take unlimited amount of junk food
+                        but,no we should not gain weight like this because this would soon lead to obesity and to
+                        many diseases. 
+                        <br>
+                        So to avoid all that this list is gonna tell you how to gain weight properly without leading to diseases
+                        so let's begin.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/weight_gain/2.jpg" alt="Potato"/>
+                <div class="card-body">
+                   <h5 class="card-title">Potatoes</h5>
+                    <p class="card-text">
+                        This humble vegetable is rich in carbohydrates, amino acids and dietary fibre,
+                        making weight-gain a healthy affair. Additionally, it is delicious and a favourite amongst kids. 
+                        You can either mash them up and serve them as a side dish or stir fry them with a little seasoning.
+                        You can also treat your little one to the other popular variant of this vegetable – the sweet potato.
+                        From sweet potato pancakes to wholesome sweet potato soup, take your pick as per your little one’s
+                        preferences.
+                        Being the potent sources of starchy carbohydrates, it can help you,to gain weight.
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/weight_gain/3.jpg" alt="banana"/>
+                <div class="card-body">
+                   <h5 class="card-title">bananas</h5>
+                    <p class="card-text">
+                        Bananas are the quickest source of energy and are packed with healthy 
+                        carbohydrates for weight gain.On average, a banana is known to have 
+                        around 105 calories, making it the go-to snack for almost everyone
+                        and even for active little ones. Additionally, this versatile fruit
+                        can be consumed in the form of milkshakes,fruit salads, creamy 
+                        desserts, or just eaten directly. They are readily available in the
+                        Indian subcontinent and are easy on the pocket too. And known as one
+                        best food for kids to gain weight.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/weight_gain/4.jpeg" alt="Nuts"/>
+                <div class="card-body">
+                   <h5 class="card-title">Nuts</h5>
+                    <p class="card-text">
+                        All our previous generations have believed in the healing power of dry fruits.
+                        It is one of the most healthy foods for kids to gain weight. Not only are these
+                        magic potions packed with vital nutrients, but they are also high in fibre and 
+                        will give you the much-needed calorie boost. Additionally, they are 
+                        known for increasing your immunity. You can either grind all the dry
+                        fruits together to make a home-made powder that can be served with milk or just 
+                        have them as snack on while watching TV. From cashews and almonds 
+                        to dates, apricots and pistachios, there are a plethora to choose from!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/weight_gain/5.jpeg" alt="Dairy"/>
+                <div class="card-body">
+                   <h5 class="card-title">Dairy Products</h5>
+                    <p class="card-text">
+                        Basic dairy products like milk, cheese and butter are staples in any person’s diet. 
+                        Milk is loaded with a good dose of calcium which helps in building strong bones and
+                        keeping the overall health of yourself in check. Make sure you have
+                        at least two glasses of milk per day to reach your goal and gain weight. Instead of
+                        having plain milk, you can ensure get your daily intake in the form of 
+                        cereals or milkshakes. 
+                        Butter is also the main source of healthy fats that will accelerate the weight-gain process.
+                    </p>
+                </div>
+            </div>
+        </div>
+                  <button  class="print-bt-style" onclick="customwindowprint()" id="print-bt2"><i class="fad fa-print" style="font-size:20px;"></i> Print Diet Plan</button>
+    </div>
+
+    <div id="overlay" onclick="closeNav()"></div>
+    <div id="weightloss-div" class="visiblity-style4">
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/weight_loss/1.jpg" alt="junk"/>
+                <div class="card-body">
+                   <h5 class="card-title">Intro</h5>
+                    <p class="card-text">
+                        We all know that we love eating junk food and because of excess amount of it can 
+                        lead to obesity as we do not exercise to burn it off hence, it can create major problems
+                        in the body.So there are some tasty yet healthy recipes for you to prepare you can easily loose
+                        weight by following the food items below and combining it with the right exercise.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" style="height:50%" draggable="false" src="./Diet/weight_loss/2.jpg" alt="Curried"/>
+                <div class="card-body">
+                   <h5 class="card-title">Curried Beans Pasta</h5>
+                    <p class="card-text">
+                        The best way to change this is to create awareness about the health problems
+                        associated with foods you are eating, and replace it with equally tasty but healthy foods, 
+                        here is the recipe-
+                        <br>
+                        <br>
+                        <h6>Ingredients</h6>
+                        <ul  class="container">
+                            <li>
+                                1/3 cup cooked whole wheat penne
+                            </li>
+                            <li>
+                                1/8 cup soaked and boiled rajma
+                            </li>
+                            <li>
+                                1 tsp butter
+                            </li>
+                            <li>
+                                1 to 1 1/2 pcs black peppercorns
+                            </li>
+                            <li>
+                                1/2 pcs bayleaf
+                            </li>
+                            <li>
+                                1/2 tsp finely chopped garlic
+                            </li>
+                            <li>
+                                1/8 cup finely chopped onions
+
+                            </li>
+                            <li>
+                                1/2 cup finely chopped tomatoes
+                            </li>
+                            <li>
+                                1 tbsp tomato ketchup
+                            </li>
+                            <li>
+                                1/2 tbsp fresh creamsalt to taste
+                            </li>
+                        </ul> 
+                        <h6>Method</h6>
+                        <ul class="container">
+                        <li>
+                            Heat the butter in a broad non-stick pan, 
+                            add the peppercorns, bayleaf and garlic 
+                            and sauté on a medium flame for a few seconds.
+                        </li>
+                        <li>
+                            Add the onions and sauté on a medium flame for 
+                            1 to 2 minutes or till they turn translucent.
+                        </li>
+                        <li>
+                            Add the tomatoes, 
+                            mix well and cook on a medium flame for
+                            2 to 3 minutes, while mashing with the back of the spoon.
+                        </li>
+                        <li>
+                            Add the rajma, mix well and 
+                            cook on a medium flame for 1 minute,
+                            while stirring continuously.
+
+                        </li>
+                        <li>
+                            Add the tomato ketchup,
+                            mix well and cook on a medium flame for 1 minute,
+                            while stirring continuously.
+                        </li>
+                        <li>
+                            Add the cream, mix well and cook on a medium flame for 1 minute.
+                        </li>
+                        <li>
+                            Add the salt, mix well and cook on a medium flame for 1 minute,
+                            while stirring occasionally.Add the penne,
+                            mix well and cook on a medium flame for 2 more minutes, 
+                            while stirring occasionally.
+                        </li>
+                        <li>
+                            Remove and discard the bayleaf and peppercorns.Serve hot.
+                        </li>
+                    </ul>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-alignment">
+            <div class="card" style="width:70%;">
+                <img class="card-img-top" draggable="false" src="./Diet/weight_loss/3.jpg" alt="apple"/>
+                <div class="card-body">
+                   <h5 class="card-title">Apple Honey Pancakes</h5>
+                    <p class="card-text">
+                            These pancakes are like breakfast apple pies--complete with apple pie spice and applesauce. Serve them for a weekend breakfast or brunch
+                        <br>
+                        <br>
+                        <h6>Ingredients</h6>
+                        <ul  class="container">
+                            <li>1 ¼ cups all-purpose flour</li>
+                            <li>
+                                2 teaspoons baking powder
+                            </li>
+                            <li>
+                                ¼ teaspoon salt
+                            </li>
+                            <li>
+                                ¼ teaspoon apple pie spice
+
+                            </li>
+                            <li>
+                                ⅛ teaspoon baking soda
+                            </li>
+                            <li>
+                                1 egg, beaten
+                            </li>
+
+                            <li>
+                                ¾ cup apple juice
+                            </li>
+                            <li>
+                                2 tablespoons honey
+                            </li>
+                            <li>
+                                1 tablespoon cooking oil
+                            </li>
+                            <li>
+                                1 Nonstick cooking spray
+                            </li>
+                            <li>
+                                1 tablespoon Light or sugar-free pancake syrup
+                            </li>
+                        </ul> 
+                        <h6>Method</h6>
+                        <ul class="container">
+                        <li>
+                            In a medium bowl stir together flour, baking powder, salt, apple pie spice, and baking soda. Make a well in the center of the flour mixture; set aside. In a small bowl stir together egg, apple juice, honey, and oil. Add egg mixture all at once to flour mixture; stir just until combined, but still slightly lumpy.
+                        </li>
+                        <li>
+                            Lightly coat a nonstick griddle or heavy nonstick skillet with nonstick cooking spray. Heat over medium heat. For each pancake, pour about 1/4 cup of the batter onto the hot griddle or skillet, spreading to 4-inch diameter if needed. Cook for 2 to 3 minutes or until pancakes have bubbly surfaces and edges are slightly dry. Turn pancakes; cook for 2 to 3 minutes more or until golden brown. If desired, serve with syrup.
+                        </li>
+                    </ul>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+         <button  class="print-bt-style" onclick="customwindowprint()" id="print-bt3"><i class="fad fa-print" style="font-size:20px;"></i>  Print Diet Plan</button>
+    </div>
+    
+<div id = "registrationForm">
+    <br>
+    <br>
+    <br>
+    <br>
+  <div  style="max-width:50%;margin:auto">
+  <h2 style="text-align:center">Sign Up</h2>
+  <br>
+  <div class="input-container">
+    <i class="fa fa-envelope icon" style="padding: 10px;background: dodgerblue;color: white;min-width: 50px;text-align: center;"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email"  id="InputEmail1">
+  </div>
+  
+  <div class="input-container">
+    <i class="fa fa-key icon" style = "padding: 10px;background: dodgerblue;color: white;min-width: 50px;text-align: center;"></i>
+    <input class="input-field" type="password" placeholder="Password" id="InputPassword1">
+  </div>
+
+  <button type="submit" class="btn-style" onclick="signup()">Register</button>
+  <br>
+  <br>
+  <button  class="btn-style2" onclick="backButton()">Cancel</button>
+</div>
+</div>
+
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDVvDtr7PGq3M0NWuTlYyPUKREWfMMccz4",
+    authDomain: "fir-auth-73adb.firebaseapp.com",
+    databaseURL: "https://fir-auth-73adb.firebaseio.com",
+    projectId: "fir-auth-73adb",
+    storageBucket: "fir-auth-73adb.appspot.com",
+    messagingSenderId: "192456213504",
+    appId: "1:192456213504:web:cf61e5a7692ea5df2c04e5"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="index5.js"></script>
+</body>
+</html>
