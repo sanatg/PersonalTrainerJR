@@ -89,7 +89,7 @@ function stopped(){
     firebase.auth().createUserWithEmailAndPassword(registeremail, registerpassword)
     .then((user) => {
       // Signed in 
-      window.alert("user created");
+     Qual.successd("success","User created successfully");
     })
     .catch((error) => {
       var errorCode = error.code;
